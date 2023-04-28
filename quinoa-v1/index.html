@@ -1,0 +1,696 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Quinoa v1</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgb(235, 243, 247);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.basic-margin {
+	margin-top: 15px;
+	margin-left: 10px;
+}
+
+.basic-left-margin {
+	margin-left: 10px;
+}
+	
+</style></head><body oncopy="return false" oncontextmenu="return false"><article id="2f6cd74d-63e8-4b2d-8609-7860fb8620df" class="page sans"><header><h1 class="page-title">Quinoa v1</h1></header><div class="page-body"><hr id="7c7c12f5-a734-4f46-a0c2-d7919653b690"/><div id="5e04e36b-2cea-43b2-978c-c655c7660917" class="column-list"><div id="acff8c77-b34d-4c66-9ca9-7fa2b6342e5f" style="width:50%" class="column"><p id="37af9fab-5f99-4211-9b80-2a8037ba0937" class="">👩🏻‍💻 <strong>Smart contract &amp; Frontend</strong></p><p id="6ea7244a-f494-4303-97b0-48b60a1d9f18" class="block-color-gray">Duration <mark class="highlight-gray">|  2022.06 - 2022.11</mark></p><p id="3e3b4d89-d963-4bf5-be28-65473151d799" class="block-color-gray">Team<mark class="highlight-gray"> | 개발자 3 • 디자이너1</mark></p><p id="cbe62188-271c-49c5-9048-6814528a5408" class="block-color-gray">Note<mark class="highlight-gray"> | 프로토콜 캠프 2기 활동에서부터 진행</mark></p></div><div id="083bf8de-6892-4e2a-bd25-df60b2997620" style="width:50%" class="column"><p id="59531517-2f9d-40ca-bb4a-dec5099cde97" class="">🔗 <strong>Link</strong></p><p id="a06b5860-598a-4075-9bc6-78d381e44792" class="block-color-gray">Smart contract | <mark class="highlight-blue"><strong><a href="https://github.com/Seomingyun/Quinoa-V1/tree/main/contract/contracts">Github</a></strong></mark></p><p id="32e5a78f-3730-4738-a63c-cb6070341b74" class=""><mark class="highlight-gray">Web |</mark> <a href="https://github.com/Seomingyun/Quinoa-V1/tree/main/front"><mark class="highlight-blue"><strong>Github</strong></mark></a></p><p id="a841be83-0eff-44d8-9974-8ba8677f4969" class="block-color-gray">Article |<mark class="highlight-blue"><strong> </strong></mark><mark class="highlight-blue"><a href="https://www.protocolcamp.com/Campstory/Detail/19?pageidx=2"><strong>Protocol Camp 2nd Farewell</strong></a></mark></p></div></div><hr id="2f16f2e8-4105-4463-9cac-fc6712b8a26a"/><p id="b4a40da3-0385-4223-adb6-b92f37e6c376" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="a38e8dba-3f2d-4ec5-a017-209f1c9c3bd6"><div style="font-size:1.5em"><span class="icon">ℹ️</span></div><div style="width:100%"><strong>목차</strong><hr id="455241a3-783f-44e5-9d15-db0519ca38e7"/><nav id="d7a37d53-966a-4e02-87a7-1facd0cbdb42" class="table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#5135f432-e26c-47ce-bb94-8d2ddaec020b"><mark class="highlight-blue">서비스 내용</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#69bb1910-bbdd-489e-9084-a1ff7a1c2a75"><mark class="highlight-blue">Smart contract architecture</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#a69bd799-0ef1-477c-ba64-9dd411246b05">개발 내용</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#f8e05a5c-4824-4704-9923-45b5ee57258b">ERC20, ERC721, ERC4626 등 다양한 유형의 토큰 개발</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#69963589-06f2-4d46-b08e-ca1869ba60fa">SVG와 On-Chain 데이터를 활용하여 실시간으로 변화하는 NFT 개발</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#9fefa0a4-7853-4124-812f-9de4ba1a4efb"><mark class="highlight-blue">성장 경험</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#7a72b1ac-8c0f-4052-aa9e-73abe61dfe6e">팀 내부적으로 진행한 DeFi 스터디</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#ba1cdd61-836f-4d6c-965a-e187a4e4d609">Yearn, Babylon 등의 DeFi 프로젝트 분석 &amp; 프로젝트 개발에 활용</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#feb60671-e27b-41aa-82fe-819db274d6d5">더 견고한 Tokenomics 설계</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#f1acaa66-f663-47ee-bed1-09a155b1deb5"><mark class="highlight-blue">별첨</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#839e2eb0-6d69-49da-8221-a5c30b6c59b1">서비스 화면</a></div></nav></div></figure><p id="8eb73e24-f0b4-4001-8748-0aeb273405a2" class="">
+</p><h1 id="5135f432-e26c-47ce-bb94-8d2ddaec020b" class=""><mark class="highlight-blue">서비스 내용</mark></h1><hr id="e1111f92-5793-43f9-a259-dd245fc896cf"/><p id="50017382-6083-4c0d-a7ad-91113311e479" class="">DeFi 시장의 Mass adoption을 목표로 DeFi 뉴비들에게 더 쉬운 유저 경험을 제공하기 위해 NFT를 활용한 DeFi Protocol입니다.</p><p id="95a361d5-62aa-4c5f-bc1e-d45df3c0eca6" class="">
+</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="31c0c6f9-76fd-4a75-9f90-5668fcd7c206"><div style="font-size:1.5em"><span class="icon">📌</span></div><div style="width:100%">Quinoa v1에서 제공하는 핵심 기능<hr id="6e716a5d-cc5b-44c9-81b1-fb9d93aae240"/><ol type="1" id="de40a86e-5237-4dac-9102-57098087c32f" class="numbered-list" start="1"><li>Vault에 토큰을 예치한다는 기존의 투자 경험 대신, 원하는 금액대의 NFT를 구매하는 개념의 DeFi 투자 경험</li></ol><ol type="1" id="249cf103-de4a-40ed-9cc3-d99471fa2f27" class="numbered-list" start="2"><li>자신의 NFT 이미지 만으로도 확인 가능한 투자 현황</li></ol><ol type="1" id="c63577d5-bbfb-48ee-9bba-3bcbe9d99e9c" class="numbered-list" start="3"><li>유저와 프로토콜, 그리고 DeFi Quant 모두 함께 성장하는 Tokenomics</li></ol></div></figure><p id="786a5352-0e13-4043-805e-3b700f656c24" class="">
+</p><p id="b35072c0-23b9-46d5-9124-6f2e6e61b132" class="">
+</p><h1 id="69bb1910-bbdd-489e-9084-a1ff7a1c2a75" class=""><mark class="highlight-blue">Smart contract architecture</mark></h1><hr id="5695b8da-b8f5-4201-a6af-d1254ae83de3"/><figure id="c29b81af-0544-4a9c-b933-25d533785cad" class="image"><img style="width:3592px" src="Quinoa%20v1%202f6cd74d63e84b2d86097860fb8620df/Untitled.png"/><figcaption>간단한 Smart Contract 구조도</figcaption></figure><div id="ace254d3-dab6-42bb-9122-4d692955285e" class="column-list"><div id="6e283cfa-abce-496b-89ee-7439a6762ee9" style="width:50%" class="column"><figure id="66b9150f-8499-4a73-9f88-4e763a3aca01" class="image"><img style="width:3272px" src="Quinoa%20v1%202f6cd74d63e84b2d86097860fb8620df/Untitled%201.png"/><figcaption>유저가 Vault에 토큰을 예치한 후 증명 NFT를 받는 로직</figcaption></figure></div><div id="b515a702-656f-46a7-8563-131ab3603b31" style="width:50%" class="column"><figure id="45fee3ae-b40e-427f-b591-9b044257b67b" class="image"><img style="width:3212px" src="Quinoa%20v1%202f6cd74d63e84b2d86097860fb8620df/Untitled%202.png"/><figcaption>NFT의 SVG 이미지를 불러오는 로직</figcaption></figure><p id="f18a126c-7e9a-4a89-8107-d40a8d611ba4" class="">
+</p></div></div><p id="94b6c716-8b9e-47cb-a8b3-cd985868fa1c" class="">
+</p><h1 id="a69bd799-0ef1-477c-ba64-9dd411246b05" class="block-color-blue">개발 내용</h1><hr id="24b83a0e-ac9c-4685-98da-d8bb19a09275"/><p id="7753758e-3f83-44ee-8ff1-6f33467e6ce4" class=""><strong>Teck Stack</strong> | Solidity • Hardhat • JavaScript • TypeScript • React </p><hr id="7e5b4d73-a736-4d3b-ac9c-a5f72e1c04b6"/><h2 id="f8e05a5c-4824-4704-9923-45b5ee57258b" class="">ERC20, ERC721, ERC4626 등 다양한 유형의 토큰 개발</h2><p id="5dfd6914-2260-4ebe-80fc-3f9e3a8407c4" class="basic-margin">NFT를 활용한 Vault 기반의 DeFi 서비스를 구현하면서 다양한 유형의 표준을 준수하는 스마트 컨트랙트를 구현하였습니다. </p><p id="9826e16c-e2d6-495d-94e7-de5c67af27af" class="basic-left-margin">구현된 컨트랙트들은 Polygon 테스트넷인 Mumbai 네트워크에 배포하였습니다. </p><ol type="1" id="b8b713db-6bb5-4808-9d05-a20701b9abe9" class="numbered-list basic-margin" start="1"><li><span style="border-bottom:0.05em solid"><strong>ERC20</strong></span><strong> </strong>
+ERC20 표준을 준수하는 Quinoa 프로토콜의 거버넌스 토큰(Qui)을 구현</li></ol><ol type="1" id="76fc9bc4-fe8d-4f77-83e1-02d201c0194a" class="numbered-list basic-left-margin" start="2"><li><span style="border-bottom:0.05em solid"><strong>ERC721</strong></span>
+실시간으로 변화하는 NFT 이미지를 위해 ERC721의 tokenURI 활용</li></ol><ol type="1" id="712e6d80-885c-45d9-b8eb-e67fca59ff7e" class="numbered-list basic-left-margin" start="3"><li><span style="border-bottom:0.05em solid"><strong>ERC4626</strong></span>
+유저들의 토큰을 예치/인출하며 해당 토큰들을 관리하는 Vault 컨트랙트 개발</li></ol><p id="8a5e89c6-5b79-425b-a5b2-48f2d50b284b" class="">
+</p><h2 id="69963589-06f2-4d46-b08e-ca1869ba60fa" class="">SVG와 On-Chain 데이터를 활용하여 실시간으로 변화하는 NFT 개발</h2><div id="db4590b8-a464-48a5-b586-a0f275c77b2c" class="column-list"><div id="84faf717-7c7b-4e88-8998-e020cfc0f756" style="width:37.5%" class="column"><figure id="393a4015-4665-4ccb-8291-26e45b767249" class="image" style="text-align:center"><img style="width:240px" src="Quinoa%20v1%202f6cd74d63e84b2d86097860fb8620df/Untitled%203.png"/></figure></div><div id="3cd9b1fd-a8b2-480b-8a4a-b0af429b282e" style="width:62.5%" class="column"><p id="08d9e608-880b-485a-8bfd-b1e7d688d945" style="margin-top: 30px;">Vault에 돈을 예치하면 유저는 기존의 Share 토큰 대신에 투자 Position을 저장하고 있는 NFT를 전달받도록 하였습니다.</p><ul id="35311c34-036c-4346-9936-48b854ea480d" style="margin-top: 15px;" class="bulleted-list"><li style="list-style-type:disc">Vault의 상태와 자신의 투자 상황을 NFT만으로도 확인 가능</li></ul><ul id="c0a0dc9e-2a03-4196-ad22-434348fc751d" class="bulleted-list"><li style="list-style-type:disc">SVG 이미지 형식을 ERC721의 Metadata로 이용</li></ul><ul id="db149025-de86-417b-ba41-baba94ea3045" class="bulleted-list"><li style="list-style-type:disc">SVG의 특정 위치에 알맞은 On-Chain 데이터를 출력하도록 구현</li></ul><ul id="177e408e-4e26-42d8-a3a3-379ced11bb77" class="bulleted-list"><li style="list-style-type:disc">ERC721의 tokenURI를 활용하였으며, Opensea에서 사용하는 json 형식을 사용해 Opensea에서도 해당 NFT 이미지 확인 가능</li></ul></div></div><p id="cfae03a9-d880-40ba-872a-2825bbba13e4" style="margin-top: 0px;" class="basic-left-margin">🔗 Blog | <mark class="highlight-blue"><strong><a href="https://him-down.tistory.com/32">SVG 이미지 NFT에 넣어서 민팅하기</a></strong></mark></p><p id="34c5f77f-0678-4329-b8cb-c8a717761e1f" class="">
+</p><h1 id="9fefa0a4-7853-4124-812f-9de4ba1a4efb" class=""><mark class="highlight-blue">성장 경험</mark></h1><hr id="0fc64cbe-8002-4ef9-aac5-c2612d575a01"/><h2 id="7a72b1ac-8c0f-4052-aa9e-73abe61dfe6e" class="">팀 내부적으로 진행한 DeFi 스터디</h2><p id="b45dc830-b77c-4b38-87d2-8451edffdeff" class="basic-margin">해당 프로젝트를 기획하면서 DeFi에 대한 개괄적인 지식이 부족하다는 점에서 한계점을 느꼈습니다. 이를 극복하기 위해 팀원들과 함께 DeFi 스터디를 진행하였습니다. </p><p id="3e265d6b-f6d2-4cd2-895d-95e74f054abb" class="basic-left-margin">Stable coin의 개념부터 Uniswap v2, Aave 등 대표적인 DeFi 프로젝트까지 각자 조사한 후 팀 내 세미나를 통해 공유하였습니다. 이를 통해 DeFi에 대한 기초 지식을 습득할 수 있었고, 기획 회의에서 좀 더 질적으로 향상된 의견을 낼 수 있었습니다.</p><p id="634afd32-7b7d-4c07-999e-4d123bd289ae" class="">
+</p><h2 id="ba1cdd61-836f-4d6c-965a-e187a4e4d609" class="">Yearn, Babylon 등의 DeFi 프로젝트 분석 &amp; 프로젝트 개발에 활용</h2><p id="6bc62f32-07ec-4c02-b8db-15942c6a855b" class="basic-margin">ERC4626을 준수하는 Vault 컨트랙트 개발을 담당하면서 FT나 NFT 개발과는 다르게 많은 정보가 있는 것이 아니라 어려움을 느꼈습니다. </p><p id="90b0cab8-58d7-4ebf-abe2-bb7387c1930a" class="basic-left-margin">따라서 Best Practice라고 생각되는 Yearn Finance의 Vault 컨트랙트와 Vault-Strategy 사이의 관계를 분석하면서 Vault 컨트랙트를 개발하였습니다. 이를 통해 Yield farming, Vault와 Share token의 개념을 더 깊게 이해할 수 있었고, 코드 구현에도 도움을 얻을 수 있었습니다.</p><p id="5ef97bba-9535-43ec-aa01-314125a28889" class="basic-left-margin">이외에도 Babylon 프로젝트의 구조를 분석하면서 Private 한 Vault-Strategy 구조와 DAO에 대한 인사이트를 많이 얻을 수 있었습니다. </p><div id="2a8bb0ce-8970-4042-a03a-7706d4bebbeb" class="column-list"><div id="73bc93fc-9ebd-4b53-9664-9e2b23f81622" style="width:50%" class="column"><p id="89aace3d-048d-4c83-ad1b-d5be9e894ea4" class="basic-margin">🔗 Blog | <mark class="highlight-blue"><strong><a href="https://him-down.tistory.com/33">Babylon Finance</a></strong></mark></p></div><div id="1ae8cb7e-e579-49c1-a685-0a2b067a9ec7" style="width:49.99999999999999%; text-align:right;" class="column"><p id="3721cac0-2308-4c13-8b7f-7b4b196754da" class=""><mark class="highlight-gray">✱ 현재 Babylon은 운영을 중단한 상태입니다.</mark></p></div></div><p id="19a8fa4b-85b9-4d0e-9f57-48068bc32e27" class="">
+</p><h2 id="feb60671-e27b-41aa-82fe-819db274d6d5" class="">더 견고한 Tokenomics 설계</h2><p id="4c44eb70-29fa-4d6e-8c8a-5f0aa898e25a" class="basic-margin">이전에 진행했던 Art1st에서는 단순히 토큰의 발행과 소각에만 초점을 맞추어 단순한 구조의 Tokenomics를 설계했었습니다. </p><p id="15b9699d-a999-4db1-b540-42d25b3783d7" class="basic-left-margin">해당 프로젝트에서는 Quinoa에서 발행하는 ERC20 토큰인 Qui 토큰에게 거버넌스 활동 외에 다른 유틸리티를 부여하여 유저들이 Qui 토큰을 계속해서 구매해야 하는 이유를 제공하려고 하였습니다. 이를 통해 통해 투자자와 프로토콜, 그리고 Quinoa에 전략을 공급해 주는 Quant 모두가 Qui 가격 상승을 위해 좋은 Protocol을 구성할 수 있도록 설계하였습니다.</p><p id="08a1aefb-ba05-4e5f-ae36-48e2f4329e22" class="basic-left-margin">결론적으로 전반적인 Tokenomics 기획 과정에 참여하면서 DeFi 프로토콜에게 Tokenomics는 프로토콜의 지속성과 커뮤니티에도 큰 영향을 끼친다는 점을 느낄 수 있었습니다. </p><p id="01e3f821-17ce-4136-801d-b6f97959cc5f" class="">
+</p><h1 id="f1acaa66-f663-47ee-bed1-09a155b1deb5" class=""><mark class="highlight-blue">별첨</mark></h1><hr id="cde08e8a-384e-427c-b0fe-3c3438e93882"/><h2 id="839e2eb0-6d69-49da-8221-a5c30b6c59b1" class="">서비스 화면</h2><div id="6c65a759-4f15-4681-8807-f1e9479be07a" class="column-list"><div id="16e7d4cb-53fb-4e4f-8552-b01152209b7d" style="width:50%" class="column"><figure id="41a57ff9-c70a-40ad-80cd-917e44367bdd" class="image"><img style="width:336px" src="Quinoa%20v1%202f6cd74d63e84b2d86097860fb8620df/Untitled%204.png"/><figcaption>NFT 구매 전 화면</figcaption></figure><figure id="b0b7706b-b3ab-4262-aada-ddebf88c7fc7" class="image"><img style="width:336px" src="Quinoa%20v1%202f6cd74d63e84b2d86097860fb8620df/Untitled%205.png"/></a><figcaption>나의 Portfolio 화면 1</figcaption></figure></div><div id="49363533-809a-4832-846f-b91fc73a2daf" style="width:49.99999999999999%" class="column"><figure id="1ebee242-d6b8-41eb-ae33-a014293c65e5" class="image"><img style="width:356px;" src="Quinoa%20v1%202f6cd74d63e84b2d86097860fb8620df/Untitled%206.png"/><figcaption>NFT 구매 후 화면</figcaption></figure><figure id="3e907441-0ba1-46c9-ae0e-1096f89f7723" class="image"><img style="width:356px;" src="Quinoa%20v1%202f6cd74d63e84b2d86097860fb8620df/Untitled%207.png"/><figcaption>나의 Portfolio 화면 2</figcaption></figure></div></div><p id="939749cf-8e13-40bd-b4d7-af8f02727cda" class="">
+</p><p id="e5eb1c2f-dd6f-4eb6-b472-58011208eaf1" class="">
+</p><p id="1a05d989-8690-4ea5-8558-36607f808cad" class="">
+</p></div></article></body></html>
