@@ -1,0 +1,692 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Art1st</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgb(235, 243, 247);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.basic-margin {
+	margin-top: 15px;
+	margin-left: 10px;
+}
+
+.basic-left-margin {
+	margin-left: 10px;
+}
+	
+</style></head><body oncopy="return false" oncontextmenu="return false"><article id="4d11234f-9377-4440-b458-0fe335b788df" class="page sans"><header><h1 class="page-title">Art1st</h1></header><div class="page-body"><hr id="51ac018d-a0f0-43fa-8f13-7f178978201f"/><div id="39906a11-7d47-437b-bd2d-edfdf9b8bcb8" class="column-list"><div id="9dc38299-c0db-4d82-87c5-6c3f96606048" style="width:50%" class="column"><p id="fd43ce35-4d00-4cfe-b1de-fa07eae70d5f" class="">👩🏻‍💻 <strong>Smart contract &amp; Backend</strong></p><p id="48b9103b-7857-4aaa-9b41-61477cdef34c" class="block-color-gray">Duration <mark class="highlight-gray">|  2022.03 - 2022.04</mark></p><p id="964e2863-aa6a-4a1a-b48e-df34c0d98c87" class="block-color-gray">Team<mark class="highlight-gray"> | 프론트엔드 2 </mark>• 컨트랙트/백엔드 2</p><p id="a1b2333d-eb34-48a4-8925-ec24a0e48a01" class="block-color-gray">Note<mark class="highlight-gray"> | 코드스테이츠 부트캠프 활동에서 진행</mark></p></div><div id="ba0b9aa0-6c56-4c04-af9d-3545cabe0b2b" style="width:50%" class="column"><p id="f95b2fd4-1f5f-4225-9b5b-f58b7ead5312" class="">🔗 <strong>Link</strong></p><p id="d1bdc511-89e5-4d24-9a4f-4c7a42f17602" class="block-color-gray">Source | <a href="https://github.com/Seomingyun/Art1st">Github</a></p><p id="df77946f-b7bf-4bf0-9070-cc5ef24f5cef" class="block-color-gray">
+</p></div></div><hr id="edd740c2-1abb-4044-a043-a27938709983"/><p id="c61e06a8-d9c4-4d66-a7cb-8b33867bfdd8" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="bfb0848e-1685-4c67-b98e-01e1a20922ac"><div style="font-size:1.5em"><span class="icon">ℹ️</span></div><div style="width:100%"><strong>목차</strong><hr id="6d71ae57-caa5-4f04-9981-d099e140a39c"/><nav id="ff5940f5-18ac-4401-982f-34cdc87aaa38" class="table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#6284875c-dec1-4d37-b87d-000331304ca7"><mark class="highlight-blue">서비스 내용</mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#ff915c6f-e7b4-44a2-98a1-f00108902395"><mark class="highlight-blue">개발 내용</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#1998f732-4aed-4318-89f0-ae94257bf465">ERC20을 활용한 스마트 컨트랙트 구현</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#a96b2498-298f-4181-9296-ce4a56c2d498">트랜잭션 일괄 처리를 위한 Batch 시스템 고안</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#66360fdf-a5c6-4e7d-baf8-b165a354e86c">Node.js를 이용한 API 서버 개발</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#9f7e0a13-42f7-41a9-a9bd-3c6d29004859"><mark class="highlight-blue">성장 경험</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#67dff8a5-7b6b-4e92-9902-57462138c711">Frontend와의 의사소통 및 협업</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#9aef07fb-d62c-48c8-a3c8-dcc8325d2b59">보완할 점</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#cbdd063a-7e97-4d97-ace6-cd067d20f5d4">Batch 시스템 관련</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#62934cd6-7f28-4b7a-b33d-84fd0943b031">ERC20 로직 관련</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#67912b62-f72b-400f-8429-75311c794f69"><mark class="highlight-blue">별첨</mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#b94c7c3a-d961-454e-8010-5609b14a1441">서비스 화면</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#46bd95e3-fc31-437f-868e-1eebe170899f">Tokenomics</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#5ecfffc2-036e-4643-b15e-497c51a3f0f6">Contents</a></div></nav></div></figure><p id="620c2fce-c04b-4b8e-a3eb-713afe2eac67" class="">
+</p><h1 id="6284875c-dec1-4d37-b87d-000331304ca7" class=""><mark class="highlight-blue">서비스 내용</mark></h1><hr id="2cc90774-568a-4ee8-8e50-868f47abc026"/><p id="a3010067-467c-426f-8181-324386eba651" class="">아마추어 작가들을 대상으로 한 NFT 거래 플랫폼입니다. NFT 거래에 더해 유저들은 작가들을 위한 후원 &amp; 자체 공모전 투표 등을 통해 작가를 응원할 수 있습니다.</p><p id="0349e60f-c4df-486f-8d44-832aac5cdbd3" class="">
+</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="6c9953bf-a3ca-4d7e-8a42-96a288b43763"><div style="font-size:1.5em"><span class="icon">📌</span></div><div style="width:100%"><strong>Art1st에서 제공하는 핵심 기능</strong><hr id="90186285-b96c-4131-bbb2-618321d30207"/><ol type="1" id="a11e5521-aeca-4106-bf67-1767d096ad7e" class="numbered-list" start="1"><li>NFT 발행 및 Art1st만의 플랫폼 토큰을 이용한 NFT 거래 기능</li></ol><ol type="1" id="b4eb9017-1038-4acc-9385-bfcfaa9a5a1d" class="numbered-list" start="2"><li>응원하고자 하는 작가에게 FT 토큰 후원 가능</li></ol><ol type="1" id="36a60116-4395-4d65-a256-6bceed5c9e94" class="numbered-list" start="3"><li>아마추어 작가의 작품을 홍보할 수 있는 플랫폼 자체 공모전 &amp; 투표 랭킹 서비스</li></ol></div></figure><p id="beec62c0-c52f-4b2f-bb9d-8011af0c9af7" class="">
+</p><h1 id="ff915c6f-e7b4-44a2-98a1-f00108902395" class=""><mark class="highlight-blue">개발 내용</mark></h1><hr id="257d26fc-5493-45b2-9653-5f7dea8d59e3"/><p id="7aaa3025-48f4-463c-86fb-f3a9eca3b5f3" class=""><strong>Tech Stack</strong> | Solidity • Truffle • Web3.js • JavaScript • Express.js • sequalizer</p><hr id="0a78756d-bf1a-41fb-981e-370621c39e1e"/><h2 id="1998f732-4aed-4318-89f0-ae94257bf465" class="">ERC20을 활용한 스마트 컨트랙트 구현</h2><p id="a47dfe82-7697-447a-b966-81d8c7c9bb51" class="basic-margin">ERC20과 관련된 스마트 컨트랙트를 담당하여 개발하였으며, 구현한 컨트랙트는 Klaytn 테스트넷에 배포하였습니다.</p><ol type="1" id="18eadfbe-875d-4784-a0e0-e14b76e077a5" class="numbered-list basic-margin" start="1"><li><span style="border-bottom:0.05em solid"><strong>Art1st 플랫폼 내에서 활용되는 ERC20 토큰인 Art 토큰 개발</strong></span></li></ol><ol type="1" id="8683b657-bb30-4f0f-aa4a-c24eff2cc602" class="numbered-list basic-left-margin" start="2"><li><span style="border-bottom:0.05em solid"><strong>Art1 토큰을 이용하여 간단하게 투표를 진행할 수 있는 Collaborations 컨트랙트 개발</strong></span><p id="5b21b312-2240-45e6-805b-60b1b6bd44c4" class="">플랫폼 공모전에 출품된 NFT에 Art 토큰을 이용해 투표할 수 있는 컨트랙트 구현</p><p id="fcf62316-3c9d-48cf-a23c-07484c9a8015" class="">투표에 사용된 Art 토큰 중 일부는 소각, 나머지는 투표한 유저들에게 보상으로 지급</p></li></ol><p id="bd55b5ae-0627-45d0-a644-ccd2ee620523" class="">
+</p><h2 id="a96b2498-298f-4181-9296-ce4a56c2d498" class="">트랜잭션 일괄 처리를 위한 Batch 시스템 고안</h2><p id="8ab52612-e328-4128-bf47-0ebd5d386b45" class="basic-margin">본 프로젝트에서는 플랫폼에서 만들어지는 트랜잭션들의 수수료를 서버가 대신 납부하는 구조입니다. 이로 인해 이용자가 많아질수록 서버 계정의 수수료 부담이 늘어날 것이라는 생각이 들어 요청들을 모아 하나의 트랜잭션으로 일괄 처리하는 구조를 사용하였습니다. </p><p id="d577f912-eacc-4930-b441-c7280c52e659" class="basic-left-margin">토큰 관련 거래가 일어나면 주문서가 작성되고, 관련 내용이 DB에 선반영됩니다. 이후 10초에 한 번씩 Daemon 서버를 통해 주문서를 모아 1개의 Transaction으로 만들어 일괄 처리합니다. 생성된 트랜잭션이 블록에 포함되었는지의 여부 역시 10초에 한 번씩 일괄적으로 확인합니다.</p><p id="d8d83619-6c4b-42ea-a5f4-9251f7794f1d" class="">
+</p><h2 id="66360fdf-a5c6-4e7d-baf8-b165a354e86c" class="">Node.js를 이용한 API 서버 개발</h2><p id="11aed7da-fa92-40a0-9b3f-de07f52854b5" class="basic-margin">express와 sequelize를 활용하여 API 서버를 구축하였습니다. </p><p id="a74dd593-010d-4c66-b5a4-e5e2b7cb6823" class="basic-left-margin">다른 백엔드 팀원과 함께 회의하면서 DB 구조를 설계하였으며, 프런트 엔드 팀원들과 소통하며 능동적으로 API 수정 사항을 받아들여 개발하였습니다.</p><p id="676eb6d9-a22b-4758-98dd-34db499f1dcc" class="basic-margin">🔗 Contents | <strong><mark class="highlight-blue"><a href="https://dbdiagram.io/d/6243be1ebed6183873221d65">DB diagram</a></mark></strong></p><p id="54a1e531-2ebf-4b5e-883a-fcb040399986" class="basic-left-margin">🔗 Contents | <strong><mark class="highlight-blue"><a href="https://www.notion.so/API-3dec2bf3aee24def9f17784aa95ad1ce">Art1st API 기록</a></mark></strong></p><p id="c0a8c4d1-ff76-4ce8-872b-a81897ea95e2" class="">
+</p><h1 id="9f7e0a13-42f7-41a9-a9bd-3c6d29004859" class=""><mark class="highlight-blue">성장 경험</mark></h1><hr id="8512e852-03d1-4fb0-b250-22fc364126bf"/><h2 id="67dff8a5-7b6b-4e92-9902-57462138c711" class="">Frontend와의 의사소통 및 협업</h2><p id="8471783e-0c9c-44b1-87d4-5cc6b6d07243" class="">플랫폼 화면이 실제로 구현되면서 기존 개발 회의에서 백엔드 팀원들끼리 상의했던 구현 방향과 다른 요구 사항들이 생겨났습니다. 코로나로 인해 리모트로 진행되던 팀 프로젝트였기에 명확하게 요구사항을 분석하기 위해 프런트엔드 팀원과 모각코(모여서 각자 코딩), 음성 회의 등을 진행하면서 주도적으로 의사소통하였습니다. </p><p id="34e9c8e9-a1c2-44d5-8e82-e08aa94f807d" class="">담당한 부분의 API 구현 후에는 담당 부분에 대해 API 문서를 작성해 공유하였습니다.</p><p id="b9c0a79c-3fc3-4e52-9f79-29cb1d9d86bd" class="">🔗 Contents | <strong><mark class="highlight-blue"><a href="https://www.notion.so/API-3dec2bf3aee24def9f17784aa95ad1ce">Art1st API 기록</a></mark></strong></p><p id="9ee110d3-8288-48c5-aece-e88aa5f74634" class="">
+</p><h2 id="9aef07fb-d62c-48c8-a3c8-dcc8325d2b59" class="">보완할 점</h2><h3 id="cbdd063a-7e97-4d97-ace6-cd067d20f5d4" class="">Batch 시스템 관련</h3><p id="5e4f7f90-be18-4469-b00c-156e32f6d46d" class="basic-margin">처음에는 Klaytn 대신에 Ethereum 네트워크를 사용하고 있어 수수료 비용과 트랜잭션 체결 시간 때문에 위와 같은 구조를 고안하였습니다.</p><p id="f6d6ca67-c8b1-4958-a1e7-9dd8710677f8" class="basic-left-margin">하지만 예상되는 Tx 결과를 우선적으로 DB에 반영하고 나중에 Tx의 체결 확인을 진행한다는 점에서 유저의 사용성을 개선하는 것이 아니라 에러 핸들링을 어렵게 해 장애 대처를 더 복잡하게 한다는 점을 깨달았습니다. 더군다나 추후에 Tx 채결이 빠르고 수수료가 더 저렴하다는 장점을 지닌 Klaytn으로 네트워크를 변경하면서 위와 같은 구조는 더욱 불필요해졌습니다. </p><p id="e3722469-5989-42af-b423-0f55a15bbc2c" class="basic-left-margin">만약 지금 다시 로직을 설계한다면 Batch 시스템을 버리고, BM 구조를 개선하여 투표에 사용된 Art 토큰이나 수수료 모델을 적용하여 플랫폼 내 Treasury를 구축하여 수수료 대납 문제를 해결할 것입니다.</p><p id="840cb537-5fff-4111-8daf-06de372e240c" class="">
+</p><h3 id="62934cd6-7f28-4b7a-b33d-84fd0943b031" class="">ERC20 로직 관련</h3><p id="68ec6332-09f8-48bf-b076-852a083ba4ba" class="basic-margin">Batch 시스템에서 각각의 요청을 분리해야 하기 때문에 비슷한 로직이지만 다른 이름을 가진 function들이 늘어나게 되었습니다. 이는 불필요하게 코드 사이즈를 증가시키기 때문에 internal 함수를 두어 비슷한 로직은 하나의 internal 함수로 해결하는 게 더 좋아 보입니다.</p><p id="9c140ec5-0af1-4035-a7b4-689f63081f59" class="">
+</p><h1 id="67912b62-f72b-400f-8429-75311c794f69" class=""><mark class="highlight-blue">별첨</mark></h1><hr id="730f3381-4d98-4df1-adaa-e7b9ee2f37ec"/><h2 id="b94c7c3a-d961-454e-8010-5609b14a1441" class="">서비스 화면</h2><div id="32c68ca1-2c3d-4f4e-a7b8-432abb9f779e" class="column-list"><div id="30cf44f7-e4a3-40cc-9c69-1828c9a05b2f" style="width:50%" class="column"><figure id="072af201-ead4-4f6e-8138-60d885aa220c" class="image"><a href="Art1st%204d11234f93774440b4580fe335b788df/main.gif"><img style="width:672px" src="Art1st%204d11234f93774440b4580fe335b788df/main.gif"/></a><figcaption>Art1st 메인 페이지</figcaption></figure></div><div id="5d190f10-6eb0-4d76-9ba2-f50b7928198b" style="width:50%" class="column"><figure id="85283621-90a7-403b-af49-aad595256ed3" class="image"><a href="Art1st%204d11234f93774440b4580fe335b788df/upload.gif"><img style="width:600px" src="Art1st%204d11234f93774440b4580fe335b788df/upload.gif"/></a><figcaption>NFT 업로드 및 발행 페이지</figcaption></figure></div></div><div id="39996ec1-b658-43d9-a8c3-47fa288cc273" class="column-list"><div id="d0504629-cada-47b6-9cea-83472063cdf8" style="width:50%" class="column"><figure id="0a2e7c57-1d5b-4f69-b166-0f32c398ceb5" class="image"><a href="Art1st%204d11234f93774440b4580fe335b788df/donate.gif"><img style="width:672px" src="Art1st%204d11234f93774440b4580fe335b788df/donate.gif"/></a><figcaption>작가 후원 기능</figcaption></figure></div><div id="0970ddef-a292-4e1a-8201-c6b8c084ede4" style="width:50%" class="column"><figure id="28ad5f2f-bf06-4ef3-b8f8-717f748da32e" class="image"><a href="Art1st%204d11234f93774440b4580fe335b788df/Untitled.png"><img style="width:2561px" src="Art1st%204d11234f93774440b4580fe335b788df/Untitled.png"/></a><figcaption>유저 페이지</figcaption></figure></div></div><p id="a4849da9-4626-4e68-af7f-793de1cc2be2" class="">
+</p><h2 id="46bd95e3-fc31-437f-868e-1eebe170899f" class="">Tokenomics</h2><figure id="b717b030-ede1-4611-9edc-94b837d46d75" class="image"><a href="Art1st%204d11234f93774440b4580fe335b788df/Untitled%201.png"><img style="width:2000px" src="Art1st%204d11234f93774440b4580fe335b788df/Untitled%201.png"/></a></figure><p id="9665e010-fc37-472f-b4f9-2e2200795a72" class="">
+</p><h2 id="5ecfffc2-036e-4643-b15e-497c51a3f0f6" class="">Contents</h2><p id="25ec69a8-9a65-498d-b878-9058f10e73ec" class="">🔗 Notion | <mark class="highlight-blue"><strong><a href="https://www.notion.so/Art1st-4de87879e9ac48cd8daebcceba3b245a">코드 스테이츠 최종 발표에서 활용한 Art1st 소개 페이지</a></strong></mark></p><p id="7a567068-a628-4d15-bf6e-4c26b018a406" class="">
+</p></div></article></body></html>
